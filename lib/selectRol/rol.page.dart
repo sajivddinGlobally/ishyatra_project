@@ -18,9 +18,14 @@ class _RolPageState extends State<RolPage> {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset("assets/otpimage.png", fit: BoxFit.cover),
+          Image.asset(
+            "assets/otpimage.png",
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            fit: BoxFit.cover,
+          ),
           Positioned(
-            top: 110.h,
+            top: 120.h,
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
