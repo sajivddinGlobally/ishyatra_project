@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:ishyatra_app/selectRol/rol.page.dart';
+import 'package:ishyatra_app/selectRol/verification.page.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class UploadPage extends StatefulWidget {
@@ -24,7 +25,7 @@ class _UploadPageState extends State<UploadPage> {
   final picker = ImagePicker();
 
   Future pickImageFromGallery() async {
-    var status = await Permission.photos.request();
+    var status = await Permission.camera.request();
     if (status.isGranted) {
       final PickedFile = await picker.pickImage(source: ImageSource.gallery);
       if (PickedFile != null) {
@@ -281,7 +282,7 @@ class _UploadPageState extends State<UploadPage> {
                                   Navigator.push(
                                     context,
                                     CupertinoPageRoute(
-                                      builder: (context) => RolPage(),
+                                      builder: (context) => VerificationPage(),
                                     ),
                                   );
                                 },
