@@ -2,17 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ishyatra_app/selectRol/rol.page.dart';
-import 'package:otp_pin_field/otp_pin_field.dart';
 
-class OtpPage extends StatefulWidget {
-  const OtpPage({super.key});
+class RolPage extends StatefulWidget {
+  const RolPage({super.key});
 
   @override
-  State<OtpPage> createState() => _OtpPageState();
+  State<RolPage> createState() => _RolPageState();
 }
 
-class _OtpPageState extends State<OtpPage> {
+class _RolPageState extends State<RolPage> {
+  int tab = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,19 +57,28 @@ class _OtpPageState extends State<OtpPage> {
                         ),
                         Padding(
                           padding: EdgeInsets.only(left: 20.w, top: 15.h),
-                          child: Icon(
-                            Icons.arrow_back,
-                            color: Color.fromARGB(255, 217, 217, 217),
-                            size: 40.sp,
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Icon(
+                              Icons.arrow_back,
+                              color: Color.fromARGB(255, 217, 217, 217),
+                              size: 40.sp,
+                            ),
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(left: 20.w, top: 15.h),
+                          padding: EdgeInsets.only(
+                            left: 20.w,
+                            top: 20.h,
+                            right: 20.w,
+                          ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Verification Code",
+                                "Please select your role",
                                 style: GoogleFonts.inter(
                                   fontSize: 16.sp,
                                   fontWeight: FontWeight.bold,
@@ -79,70 +87,75 @@ class _OtpPageState extends State<OtpPage> {
                               ),
                               SizedBox(height: 6.h),
                               Text(
-                                "We have sent the verification code to the",
+                                "Select your role to continue: Traveller, Vendor\n (business), or Companion (licensed individual guide).",
                                 style: GoogleFonts.inter(
                                   fontSize: 14.sp,
                                   fontWeight: FontWeight.w300,
                                   color: Color.fromARGB(255, 11, 25, 44),
                                 ),
                               ),
-                              Row(
-                                children: [
-                                  Text(
-                                    "phone number",
-                                    style: GoogleFonts.inter(
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w300,
-                                      color: Color.fromARGB(255, 11, 25, 44),
-                                    ),
-                                  ),
-                                  SizedBox(width: 5.w),
-                                  Text(
-                                    " ‘+91 98765 43210’",
-                                    style: GoogleFonts.inter(
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color.fromARGB(255, 11, 25, 44),
-                                    ),
-                                  ),
-                                ],
+                              SizedBox(height: 34.h),
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    tab = 0;
+                                  });
+                                },
+                                child: SelectBody(
+                                  iamge: "assets/Traveler.png",
+                                  title: "I am a pilgrimage Traveller ",
+                                  txt:
+                                      "Explore destinations, book services, and\n enjoy a seamless travel experience.",
+                                  bgcolor:
+                                      tab == 0
+                                          ? Color.fromARGB(255, 251, 240, 233)
+                                          : Colors.white,
+                                ),
+                              ),
+                              SizedBox(height: 16.h),
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    tab = 1;
+                                  });
+                                },
+                                child: SelectBody(
+                                  iamge: "assets/Valet.png",
+                                  title: "I am a Vendor",
+                                  txt:
+                                      "Register your business (e.g., shop, hotel,\n travel agency) to offer services",
+                                  bgcolor:
+                                      tab == 1
+                                          ? Color.fromARGB(255, 251, 240, 233)
+                                          : Colors.white,
+                                ),
+                              ),
+                              SizedBox(height: 16.h),
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    tab = 2;
+                                  });
+                                },
+                                child: SelectBody(
+                                  iamge: "assets/Agency.png",
+                                  title: "I am a Companion",
+                                  txt:
+                                      "Act as a trusted local guide or assistant\n connecting travellers with vendors",
+                                  bgcolor:
+                                      tab == 2
+                                          ? Color.fromARGB(255, 251, 240, 233)
+                                          : Colors.white,
+                                ),
                               ),
                             ],
                           ),
                         ),
-                        SizedBox(height: 40.h),
-                        Center(child: Image.asset("assets/otp.png")),
-                        SizedBox(height: 54.h),
+                        SizedBox(height: 110.h),
                         Padding(
                           padding: EdgeInsets.only(left: 20.w, right: 20.w),
                           child: Column(
                             children: [
-                              OtpPinField(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                fieldHeight: 51.h,
-                                fieldWidth: 49.w,
-                                keyboardType: TextInputType.number,
-                                otpPinFieldStyle: OtpPinFieldStyle(
-                                  defaultFieldBorderColor: Color.fromARGB(
-                                    255,
-                                    30,
-                                    62,
-                                    98,
-                                  ),
-                                  activeFieldBorderColor: Color.fromARGB(
-                                    229,
-                                    255,
-                                    101,
-                                    0,
-                                  ),
-                                ),
-                                otpPinFieldDecoration:
-                                    OtpPinFieldDecoration
-                                        .defaultPinBoxDecoration,
-                                onSubmit: (text) {},
-                                onChange: (text) {},
-                              ),
                               SizedBox(height: 50.h),
                               GestureDetector(
                                 onTap: () {
@@ -195,6 +208,78 @@ class _OtpPageState extends State<OtpPage> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class SelectBody extends StatefulWidget {
+  final String iamge;
+  final String title;
+  final String txt;
+  final Color bgcolor;
+  const SelectBody({
+    super.key,
+    required this.iamge,
+    required this.title,
+    required this.txt,
+    required this.bgcolor,
+  });
+
+  @override
+  State<SelectBody> createState() => _SelectBodyState();
+}
+
+class _SelectBodyState extends State<SelectBody> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: 90.h,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16.r),
+        color: widget.bgcolor,
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(0, 4),
+            blurRadius: 11.9,
+            spreadRadius: -1,
+            color: Color.fromARGB(63, 0, 0, 0),
+          ),
+        ],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(left: 18.w),
+            child: Image.asset(widget.iamge),
+          ),
+          SizedBox(width: 10.w),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                widget.title,
+                style: GoogleFonts.inter(
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w500,
+                  color: Color.fromARGB(255, 11, 25, 44),
+                ),
+              ),
+              Text(
+                widget.txt,
+                style: GoogleFonts.inter(
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w300,
+                  color: Color.fromARGB(255, 11, 25, 44),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
