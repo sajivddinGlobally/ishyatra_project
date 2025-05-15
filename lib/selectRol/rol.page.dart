@@ -162,11 +162,33 @@ class _RolPageState extends State<RolPage> {
                         SizedBox(height: 50.h),
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              CupertinoPageRoute(
-                                builder: (context) => UploadPage(),
+                            // Navigator.push(
+                            //   context,
+                            //   CupertinoPageRoute(
+                            //     builder: (context) => UploadPage(),
+                            //   ),
+                            // );
+                            showModalBottomSheet(
+                              context: context,
+                              isScrollControlled: true,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(20),
+                                ),
                               ),
+                              builder: (context) {
+                                return Container(
+                                  height: MediaQuery.of(context).size.height,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(30),
+                                      topRight: Radius.circular(30),
+                                    ),
+                                  ),
+                                  child: UploadPage(), // ✅ Your OTP Page Here
+                                );
+                              },
                             );
                           },
                           child: Container(

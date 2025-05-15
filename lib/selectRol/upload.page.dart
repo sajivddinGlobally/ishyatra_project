@@ -122,10 +122,15 @@ class _UploadPageState extends State<UploadPage> {
                         ),
                         Padding(
                           padding: EdgeInsets.only(left: 20.w, top: 15.h),
-                          child: Icon(
-                            Icons.arrow_back,
-                            color: Color.fromARGB(255, 217, 217, 217),
-                            size: 40.sp,
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Icon(
+                              Icons.arrow_back,
+                              color: Color.fromARGB(255, 217, 217, 217),
+                              size: 40.sp,
+                            ),
                           ),
                         ),
                         Padding(
@@ -279,11 +284,35 @@ class _UploadPageState extends State<UploadPage> {
                               SizedBox(height: 50.h),
                               GestureDetector(
                                 onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    CupertinoPageRoute(
-                                      builder: (context) => VerificationPage(),
+                                  // Navigator.push(
+                                  //   context,
+                                  //   CupertinoPageRoute(
+                                  //     builder: (context) => VerificationPage(),
+                                  //   ),
+                                  // );
+                                  showModalBottomSheet(
+                                    context: context,
+                                    isScrollControlled: true,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.vertical(
+                                        top: Radius.circular(20),
+                                      ),
                                     ),
+                                    builder: (context) {
+                                      return Container(
+                                        height:
+                                            MediaQuery.of(context).size.height,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(30),
+                                            topRight: Radius.circular(30),
+                                          ),
+                                        ),
+                                        child:
+                                            VerificationPage(), // ✅ Your OTP Page Here
+                                      );
+                                    },
                                   );
                                 },
                                 child: Container(

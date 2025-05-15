@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ishyatra_app/home/home.page.dart';
 
 class VerificationPage extends StatefulWidget {
   const VerificationPage({super.key});
@@ -58,10 +59,15 @@ class _VerificationPageState extends State<VerificationPage> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: 20.w, top: 15.h),
-                    child: Icon(
-                      Icons.arrow_back,
-                      color: Color.fromARGB(255, 217, 217, 217),
-                      size: 40.sp,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(
+                        Icons.arrow_back,
+                        color: Color.fromARGB(255, 217, 217, 217),
+                        size: 40.sp,
+                      ),
                     ),
                   ),
 
@@ -97,7 +103,7 @@ class _VerificationPageState extends State<VerificationPage> {
                             Navigator.push(
                               context,
                               CupertinoPageRoute(
-                                builder: (context) => VerificationPage(),
+                                builder: (context) => HomePage(),
                               ),
                             );
                           },
