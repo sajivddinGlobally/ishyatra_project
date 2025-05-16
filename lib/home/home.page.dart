@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ishyatra_app/home/search.page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -214,20 +215,28 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   SizedBox(height: 14.h),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 37.h,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(41.r),
-                      color: Color(0xFFFE7743),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Search",
-                        style: GoogleFonts.inter(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        CupertinoPageRoute(builder: (context) => SearchPage()),
+                      );
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 37.h,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(41.r),
+                        color: Color(0xFFFE7743),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Search",
+                          style: GoogleFonts.inter(
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
