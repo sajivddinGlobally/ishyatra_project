@@ -63,7 +63,11 @@ class _BackgroundImageState extends State<BackgroundImage> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Image.asset("assets/ishyatralogo.png"),
+                  SizedBox(height: 109.h),
+                  Image.asset(
+                    "assets/ishyatralogo.png",
+                    color: Color.fromARGB(229, 255, 101, 0),
+                  ),
                   SizedBox(height: 50.h),
                   widget.isShow
                       ? Column(
@@ -90,7 +94,7 @@ class _BackgroundImageState extends State<BackgroundImage> {
                       )
                       : SizedBox(),
 
-                  SizedBox(height: 178.h),
+                  SizedBox(height: 100.h),
                   GestureDetector(
                     onTap: () {
                       widget.callback();

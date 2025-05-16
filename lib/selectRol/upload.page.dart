@@ -32,9 +32,9 @@ class _UploadPageState extends State<UploadPage> {
         setState(() {
           image = File(PickedFile.path);
         });
-      } else {
-        print("Gallery permission denied");
       }
+    } else {
+      print("Gallery permission denied");
     }
   }
 

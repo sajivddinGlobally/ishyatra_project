@@ -57,7 +57,12 @@ class _SplashPage4State extends State<SplashPage4> {
                     top: 80.h,
                     child: Center(
                       child: Column(
-                        children: [Image.asset("assets/loginlogo.png")],
+                        children: [
+                          Image.asset(
+                            "assets/loginlogo.png",
+                            color: Color.fromARGB(229, 255, 101, 0),
+                          ),
+                        ],
                       ),
                     ),
                   ),
