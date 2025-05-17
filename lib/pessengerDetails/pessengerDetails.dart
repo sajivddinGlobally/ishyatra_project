@@ -45,8 +45,7 @@ class _PessengerDetailsState extends State<PessengerDetails> {
     }
   }
 
-  String selectedValue = "Char Dham";
-  List<String> options = ["Data 1", "Data 2", "Data 3"];
+  String selectedValue = "Select";
 
   @override
   Widget build(BuildContext context) {
@@ -353,16 +352,16 @@ class _PessengerDetailsState extends State<PessengerDetails> {
                               itemBuilder:
                                   (context) => [
                                     PopupMenuItem<String>(
-                                      value: 'Option 1',
-                                      child: Text('Option 1'),
+                                      value: 'Adult',
+                                      child: Text('Adult'),
                                     ),
                                     PopupMenuItem<String>(
-                                      value: 'Option 2',
-                                      child: Text('Option 2'),
+                                      value: 'Child',
+                                      child: Text('Child'),
                                     ),
                                     PopupMenuItem<String>(
-                                      value: 'Option 3',
-                                      child: Text('Option 3'),
+                                      value: 'Senier',
+                                      child: Text('Senier'),
                                     ),
                                   ],
                               child: Container(
