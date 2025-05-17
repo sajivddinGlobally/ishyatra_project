@@ -701,37 +701,46 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(left: 16.w, right: 16.w),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(35.r),
-          child: BottomNavigationBar(
-            selectedItemColor: Colors.white,
-            unselectedItemColor: Color(0xFFFFFFFF),
-            selectedLabelStyle: GoogleFonts.inter(
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w400,
-              color: Colors.white,
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
+        child: SafeArea(
+          child: Container(
+            height: 70.h,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(35.r),
+              color: Color(0xFFFF6500),
             ),
-            backgroundColor: Color(0xFFFF6500),
-            type: BottomNavigationBarType.fixed,
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.explore_outlined),
-                label: "Discover",
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(35.r),
+              child: BottomNavigationBar(
+                selectedItemColor: Colors.white,
+                unselectedItemColor: Color(0xFFFFFFFF),
+                selectedLabelStyle: GoogleFonts.inter(
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.white,
+                ),
+                backgroundColor: Color(0xFFFF6500),
+                type: BottomNavigationBarType.fixed,
+                items: [
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.explore_outlined),
+                    label: "Discover",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.calendar_month_rounded),
+                    label: "Bookings",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.whatshot_outlined),
+                    label: "Hot Deal",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.notifications_none),
+                    label: "Notification",
+                  ),
+                ],
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.calendar_month_rounded),
-                label: "Bookings",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.whatshot_outlined),
-                label: "Hot Deal",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.notifications_none),
-                label: "Notification",
-              ),
-            ],
+            ),
           ),
         ),
       ),
