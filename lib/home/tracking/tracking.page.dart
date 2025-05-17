@@ -482,6 +482,7 @@ class _TrackingPageState extends State<TrackingPage> {
                 ],
               ),
             ),
+            SizedBox(height: 50.h),
           ],
         ),
       ),
