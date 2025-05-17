@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ishyatra_app/home/tracking/tracking.page.dart';
+
+import 'package:ishyatra_app/tracking/tracking.page.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -159,7 +160,7 @@ class _SearchPageState extends State<SearchPage> {
                                           SizedBox(width: 10.w),
                                           Text(
                                             selectDate == null
-                                                ? "Start Date"
+                                                ? "Select Date"
                                                 : "${selectDate!.day}/${selectDate!.month}/${selectDate!.year}",
                                             style: GoogleFonts.inter(
                                               fontSize: 16.sp,

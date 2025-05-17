@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ishyatra_app/home/search.page.dart';
+import 'package:ishyatra_app/pessengerDetails/pessengerDetails.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
 class TrackingPage extends StatefulWidget {
@@ -493,7 +494,12 @@ class _TrackingPageState extends State<TrackingPage> {
             minimumSize: Size(MediaQuery.of(context).size.width, 51.h),
             backgroundColor: Color(0xFFFF6500),
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              CupertinoPageRoute(builder: (context) => PessengerDetails()),
+            );
+          },
           child: Text(
             "Book",
             style: GoogleFonts.inter(
