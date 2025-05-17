@@ -240,8 +240,8 @@ class _TrackingPageState extends State<TrackingPage> {
               ),
             ),
             Container(
-              height: 400,
-              color: Colors.amber,
+              height: 450.h,
+              // color: Colors.amber,
               child: ListView(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
@@ -250,26 +250,31 @@ class _TrackingPageState extends State<TrackingPage> {
                   Padding(
                     padding: EdgeInsets.only(left: 16.w),
                     child: Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
+                        SizedBox(height: 10.h),
                         TimelineTile(
                           axis: TimelineAxis.vertical,
                           alignment: TimelineAlign.start,
-                          lineXY: 0.1,
+                          lineXY: 1.0,
                           isFirst: true,
                           indicatorStyle: IndicatorStyle(
                             width: 20.w,
                             height: 20.h,
                             color: Color(0xFF1E3E62),
+                            padding: EdgeInsets.only(top: 10.h),
+                            indicatorXY: BorderSide.strokeAlignCenter,
                           ),
                           beforeLineStyle: LineStyle(
                             color: Color(0xFF1E3E62),
                             thickness: 2.w,
                           ),
                           endChild: Padding(
-                            padding: EdgeInsets.only(left: 10.w, top: 30.h),
+                            padding: EdgeInsets.only(left: 10.w, top: 10.h),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
                               children: [
                                 Text(
                                   "Day 1 – Arrival and Check-in",
@@ -279,7 +284,7 @@ class _TrackingPageState extends State<TrackingPage> {
                                     color: Color(0xFF0B192C),
                                   ),
                                 ),
-                                SizedBox(height: 8.h),
+                                SizedBox(height: 6.h),
                                 Text(
                                   "8:00 AM: Pickup from Haridwar/Rishikesh",
                                   style: GoogleFonts.inter(
@@ -288,7 +293,6 @@ class _TrackingPageState extends State<TrackingPage> {
                                     color: Color(0xFF0B192C),
                                   ),
                                 ),
-
                                 Text(
                                   "4:00 PM: Arrival at Guptkashi",
                                   style: GoogleFonts.inter(
@@ -304,19 +308,23 @@ class _TrackingPageState extends State<TrackingPage> {
                         TimelineTile(
                           alignment: TimelineAlign.start,
                           lineXY: 0.1,
+                          isFirst: true,
                           indicatorStyle: IndicatorStyle(
                             width: 20.w,
                             height: 20.h,
                             color: Color(0xFF1E3E62),
+                            indicatorXY: BorderSide.strokeAlignCenter,
+                            padding: EdgeInsets.only(top: 10.h),
                           ),
                           beforeLineStyle: LineStyle(
                             color: Color(0xFF1E3E62),
                             thickness: 2.w,
                           ),
                           endChild: Padding(
-                            padding: EdgeInsets.all(16.0),
+                            padding: EdgeInsets.only(left: 10.w, top: 10.h),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
                               children: [
                                 Text(
                                   "Day 2 – Kedarnath Trek and Darshan",
@@ -326,7 +334,7 @@ class _TrackingPageState extends State<TrackingPage> {
                                     color: Color(0xFF0B192C),
                                   ),
                                 ),
-                                SizedBox(height: 8.h),
+                                SizedBox(height: 6.h),
                                 Text(
                                   "5:00 AM: Drive to Sonprayag",
                                   style: GoogleFonts.inter(
@@ -345,6 +353,22 @@ class _TrackingPageState extends State<TrackingPage> {
                                 ),
                                 Text(
                                   "2:00 PM: Arrival and check-in at Kedarnath",
+                                  style: GoogleFonts.inter(
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w300,
+                                    color: Color(0xFF0B192C),
+                                  ),
+                                ),
+                                Text(
+                                  "5:00 PM: Temple Darshan and Evening Aarti",
+                                  style: GoogleFonts.inter(
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w300,
+                                    color: Color(0xFF0B192C),
+                                  ),
+                                ),
+                                Text(
+                                  "9:00 PM: Stay near Kedarnath Temple",
                                   style: GoogleFonts.inter(
                                     fontSize: 14.sp,
                                     fontWeight: FontWeight.w300,
@@ -358,22 +382,30 @@ class _TrackingPageState extends State<TrackingPage> {
                         TimelineTile(
                           alignment: TimelineAlign.start,
                           lineXY: 0.1,
+                          isFirst: true,
+                          afterLineStyle: LineStyle(
+                            color: Color(0xFF1E3E62),
+                            thickness: 2.w,
+                          ),
                           indicatorStyle: IndicatorStyle(
                             width: 20.w,
                             height: 20.h,
                             color: Color(0xFF1E3E62),
+                            indicatorXY: BorderSide.strokeAlignCenter,
+                            padding: EdgeInsets.only(top: 10.h),
                           ),
                           beforeLineStyle: LineStyle(
                             color: Color(0xFF1E3E62),
                             thickness: 2.w,
                           ),
                           endChild: Padding(
-                            padding: EdgeInsets.all(16.0),
+                            padding: EdgeInsets.only(left: 10.w, top: 10.h),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
                               children: [
                                 Text(
-                                  "Day 2 – Kedarnath Trek and Darshan",
+                                  "Day 3 – Kedarnath Trek and Darshan",
                                   style: GoogleFonts.inter(
                                     fontSize: 16.sp,
                                     fontWeight: FontWeight.w500,
@@ -382,7 +414,7 @@ class _TrackingPageState extends State<TrackingPage> {
                                 ),
                                 SizedBox(height: 8.h),
                                 Text(
-                                  "5:00 AM: Drive to Sonprayag",
+                                  "6:00 AM: Morning optional Darshan",
                                   style: GoogleFonts.inter(
                                     fontSize: 14.sp,
                                     fontWeight: FontWeight.w300,
@@ -390,7 +422,7 @@ class _TrackingPageState extends State<TrackingPage> {
                                   ),
                                 ),
                                 Text(
-                                  "7:00 AM: Start trek to Kedarnath",
+                                  "8:00 AM: Start trek back to Sonprayag",
                                   style: GoogleFonts.inter(
                                     fontSize: 14.sp,
                                     fontWeight: FontWeight.w300,
@@ -398,7 +430,15 @@ class _TrackingPageState extends State<TrackingPage> {
                                   ),
                                 ),
                                 Text(
-                                  "2:00 PM: Arrival and check-in at Kedarnath",
+                                  "2:00 PM: Drive to Guptkashi",
+                                  style: GoogleFonts.inter(
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w300,
+                                    color: Color(0xFF0B192C),
+                                  ),
+                                ),
+                                Text(
+                                  "7:00 PM: Rest and leisure evening at hotel",
                                   style: GoogleFonts.inter(
                                     fontSize: 14.sp,
                                     fontWeight: FontWeight.w300,
@@ -406,6 +446,33 @@ class _TrackingPageState extends State<TrackingPage> {
                                   ),
                                 ),
                               ],
+                            ),
+                          ),
+                        ),
+                        TimelineTile(
+                          alignment: TimelineAlign.start,
+                          lineXY: 0.1,
+                          isLast: true,
+                          indicatorStyle: IndicatorStyle(
+                            width: 20.w,
+                            height: 20.h,
+                            color: Color(0xFF1E3E62),
+                            indicatorXY: BorderSide.strokeAlignCenter,
+                            padding: EdgeInsets.zero,
+                          ),
+                          beforeLineStyle: LineStyle(
+                            color: Color(0xFF1E3E62),
+                            thickness: 2.w,
+                          ),
+                          endChild: Padding(
+                            padding: EdgeInsets.only(left: 10.w),
+                            child: Text(
+                              "Day 4 – Departure",
+                              style: GoogleFonts.inter(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xFF0B192C),
+                              ),
                             ),
                           ),
                         ),
